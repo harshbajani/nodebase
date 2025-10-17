@@ -90,6 +90,13 @@ export function SignupForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/github.svg"
+                      alt="github"
+                      height={20}
+                      width={20}
+                      className="object-contain"
+                    />
                     Continue with Github
                   </Button>
                   <Button
@@ -98,6 +105,13 @@ export function SignupForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/google.svg"
+                      alt="google"
+                      height={20}
+                      width={20}
+                      className="object-contain"
+                    />
                     Continue with Google
                   </Button>
                 </div>
@@ -159,7 +173,10 @@ export function SignupForm() {
                 </div>
                 <div className="text-center text-sm">
                   Already have an account?{" "}
-                  <Link href="/login" className="underline underline-offset-4">
+                  <Link
+                    href="/login"
+                    className="underline underline-offset-4 text-primary"
+                  >
                     Login
                   </Link>
                 </div>

@@ -5,6 +5,9 @@ import { Globe } from "lucide-react";
 import { memo, useState } from "react";
 import { BaseExecutionNode } from "../BaseExecutionNode";
 import { HTTPRequestFormValues, HttpRequestDialog } from "./Dialog";
+import { UseNodeStatus } from "../../hooks/use-node-status";
+import { fetchHttpRequestRealtimeToken } from "./actions";
+import { HTTP_REQUEST_CHANNEL_NAME } from "@/inngest/channels/http-request";
 
 type HTTPRequestNodeData = {
   variableName?: string;
@@ -42,7 +45,12 @@ export const HttpRequestNode = memo((props: NodeProps<HTTPRequestNodeType>) => {
     ? `${nodeData.method || "GET"}: ${nodeData.endpoint}`
     : "Not Configured";
 
-  const status = "initial";
+  const nodeStatus = UseNodeStatus({
+    nodeId: props.id,
+    channel: HTTP_REQUEST_CHANNEL_NAME,
+    topic: "status",
+    refreshToken: fetchHttpRequestRealtimeToken,
+  });
 
   return (
     <>
@@ -56,7 +64,7 @@ export const HttpRequestNode = memo((props: NodeProps<HTTPRequestNodeType>) => {
         {...props}
         id={props.id}
         icon={Globe}
-        status={status}
+        status={nodeStatus}
         name="HTTP Request"
         description={description}
         onSettings={handleOpenSettings}

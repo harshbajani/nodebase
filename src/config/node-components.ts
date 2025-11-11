@@ -2,6 +2,7 @@ import { InitialNode } from "@/components/InitialNode";
 import { HttpRequestNode } from "@/features/executions/components/http-request/Node";
 import { GoogleFormTrigger } from "@/features/triggers/components/google-form-trigger/Node";
 import { ManualTriggerNode } from "@/features/triggers/components/manual-trigger/Node";
+import { StripeTriggerNode } from "@/features/triggers/components/stripe-trigger/Node";
 import { NodeType } from "@/generated/prisma";
 import type { NodeTypes } from "@xyflow/react";
 
@@ -10,6 +11,7 @@ export const nodeComponents = {
   [NodeType.HTTP_REQUEST]: HttpRequestNode,
   [NodeType.MANUAL_TRIGGER]: ManualTriggerNode,
   [NodeType.GOOGLE_FORM_TRIGGER]: GoogleFormTrigger,
+  [NodeType.STRIPE_TRIGGER]: StripeTriggerNode,
 } as const satisfies NodeTypes;
 
 export type RegisteredNodeType = keyof typeof nodeComponents;

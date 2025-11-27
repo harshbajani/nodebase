@@ -119,6 +119,8 @@ enum NodeType {
   GEMINI
   ANTHROPIC
   OPENAI
+  DISCORD
+  SLACK
 }
 
 model Node {

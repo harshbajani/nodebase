@@ -7,6 +7,8 @@ import { stripeTriggerExecutor } from "@/features/triggers/components/stripe-tri
 import { geminiExecutor } from "../components/gemini/executor";
 import { openAiExecutor } from "../components/openai/executor";
 import { anthropicExecutor } from "../components/anthropic/executor";
+import { discordExecutor } from "../components/discord/executor";
+import { slackExecutor } from "../components/slack/executor";
 
 const adaptExecutor = <TData>(executor: NodeExecutor<TData>): NodeExecutor => {
   return async (params) => executor(params as NodeExecutorParams<TData>);
@@ -21,6 +23,8 @@ export const executorRegistry: Record<NodeType, NodeExecutor> = {
   [NodeType.GEMINI]: adaptExecutor(geminiExecutor),
   [NodeType.ANTHROPIC]: adaptExecutor(anthropicExecutor),
   [NodeType.OPENAI]: adaptExecutor(openAiExecutor),
+  [NodeType.DISCORD]: adaptExecutor(discordExecutor),
+  [NodeType.SLACK]: adaptExecutor(slackExecutor),
 };
 
 export const getExecutor = (type: NodeType): NodeExecutor => {

@@ -3,6 +3,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { useReactFlow } from "@xyflow/react";
 import { Globe, MousePointer } from "lucide-react";
 import React, { useCallback } from "react";
+import Image from "next/image";
 import { toast } from "sonner";
 import {
   Sheet,
@@ -161,9 +162,11 @@ export function NodeSelector({
               >
                 <div className="flex items-center gap-6 w-full overflow-hidden">
                   {typeof Icon === "string" ? (
-                    <img
+                    <Image
                       src={Icon}
                       alt={nodeType.label}
+                      width={20}
+                      height={20}
                       className="size-5 object-contain rounded-sm"
                     />
                   ) : (
@@ -194,9 +197,11 @@ export function NodeSelector({
               >
                 <div className="flex items-center gap-6 w-full overflow-hidden">
                   {typeof Icon === "string" ? (
-                    <img
+                    <Image
                       src={Icon}
                       alt={nodeType.label}
+                      width={20}
+                      height={20}
                       className="size-5 object-contain rounded-sm"
                     />
                   ) : (

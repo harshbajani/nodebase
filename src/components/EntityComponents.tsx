@@ -268,7 +268,8 @@ export const EntityItem = ({
   subtitle,
 }: EntityItemProps) => {
   const handleRemove = async (e: React.MouseEvent) => {
-    e.preventDefault(), e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
     if (isRemoving) return;
 

@@ -121,6 +121,7 @@ export function SignupForm() {
                     className="w-full"
                     type="button"
                     disabled={isPending}
+                    onClick={signInGithub}
                   >
                     <Image
                       src="/github.svg"
@@ -128,7 +129,6 @@ export function SignupForm() {
                       height={20}
                       width={20}
                       className="object-contain"
-                      onClick={signInGithub}
                     />
                     Continue with Github
                   </Button>
